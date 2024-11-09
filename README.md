@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 GeekMode Next.js Template
 
-## Getting Started
+A modern, lightning-fast Next.js template with shadcn/ui, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+[![Next.js](https://img.shields.io/badge/Next.js-15.0-black?logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
+[![shadcn/ui](https://img.shields.io/badge/shadcn/ui-Latest-black)](https://ui.shadcn.com/)
+
+## ✨ Features
+
+- 📱 **Next.js 15** with App Router
+- 🎨 **shadcn/ui** components
+- 💎 **TypeScript** for type safety
+- 🎯 **Tailwind CSS** for styling
+- 🔥 **ESLint & Prettier** for code quality
+- 🚄 **Ready for Codespaces**
+
+## 🏃‍♂️ Quick Start
+
+### Option 1: Use Template Button
+
+1. Click [`Use this template`](https://github.com/NFNEEK/geeked-template/generate)
+2. Create a new repository
+3. Open in GitHub Codespaces
+4. Start coding!
+
+### Option 2: Clone Locally
 
 ```bash
-npm run dev
-# or
+# Create new project using this template
+npx create-next-app@latest my-app -e https://github.com/NFNEEK/geeked-template
+
+# Install dependencies
+yarn install
+
+# Start development server
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 What's Included
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🎨 **UI Components**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  - Fully styled shadcn/ui components
+  - Dark mode support
+  - Responsive by default
 
-## Learn More
+- 🛠 **Development Tools**
 
-To learn more about Next.js, take a look at the following resources:
+  - TypeScript configuration
+  - ESLint & Prettier setup
+  - VS Code recommended extensions
+  - GitHub Copilot ready
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 🏗 **Project Structure**
+  ```
+  src/
+  ├── app/           # Next.js App Router
+  ├── components/    # React Components
+  ├── lib/          # Utilities
+  └── styles/       # Global Styles
+  ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💻 Development
 
-## Deploy on Vercel
+```bash
+# Start development server
+yarn dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Type checking
+yarn type-check
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Linting
+yarn lint
+
+# Add new shadcn component
+yarn ui <component-name>
+```
+
+## 🔧 VS Code Features
+
+- GitHub Copilot enabled
+- Live Preview support
+- Tailwind CSS IntelliSense
+- TypeScript integration
+- ESLint & Prettier integration
+
+## 📝 License
+
+MIT License - feel free to build amazing things! 🚀
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by NFNEEK</p>
+  <p>
+    <a href="https://github.com/NFNEEK">GitHub</a>
+  </p>
+</div>

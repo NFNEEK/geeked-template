@@ -1,100 +1,72 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Suspense } from "react";
+import { Github, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
+import FeatureCard from "@/components/FeatureCard";
+import TechStack from "@/components/TechStack";
+import { LiveClock } from "@/components/LiveClock";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="container mx-auto px-4 py-8 flex flex-col items-center">
+      <div className="max-w-3xl w-full flex flex-col items-center space-y-8 text-center">
+        <div className="relative">
+          <h1 className="animate-text-shimmer bg-[linear-gradient(110deg,#939393,45%,#1e293b,55%,#939393)] bg-[length:250%_100%] bg-clip-text text-6xl font-extrabold text-transparent sm:text-7xl md:text-8xl">
+            GeekMode
+          </h1>
+          <div className="absolute -right-4 -top-4 rounded-full bg-gradient-to-br from-primary to-primary-foreground p-1 text-background">
+            <Zap size={24} />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <p className="max-w-[42rem] text-muted-foreground text-xl">
+          Sexy UI, High Class Design & Lightning-Fast Development
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <Button size="lg" className="min-w-[150px]" asChild>
+            <Link href={siteConfig.links.docs}>Get Started</Link>
+          </Button>
+          <Button size="lg" variant="outline" className="min-w-[150px]" asChild>
+            <Link
+              href={siteConfig.links.github}
+              className="group flex items-center justify-center gap-2"
+            >
+              <Github className="h-5 w-5 transition-transform group-hover:rotate-[360deg]" />
+              GitHub
+            </Link>
+          </Button>
+        </div>
+      </div>
+
+      <div className="mt-16 w-full">
+        <h2 className="text-3xl font-bold text-center mb-8">Key Features</h2>
+        <div className="grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {siteConfig.features.map((feature, index) => (
+            <FeatureCard key={index} {...feature} />
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-16 w-full flex justify-center">
+        <Suspense
+          fallback={<div className="h-[100px] w-full animate-pulse bg-muted" />}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <TechStack technologies={siteConfig.techStack} />
+        </Suspense>
+      </div>
+
+      <footer className="mt-16 flex flex-col items-center gap-2 text-center text-sm text-muted-foreground">
+        <Suspense
+          fallback={<div className="h-5 w-20 animate-pulse bg-muted" />}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          <LiveClock />
+        </Suspense>
+        <p>
+          {siteConfig.footerText} |{" "}
+          <Link href="/license" className="underline underline-offset-4">
+            MIT License
+          </Link>
+        </p>
       </footer>
     </div>
   );
