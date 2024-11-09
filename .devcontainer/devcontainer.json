@@ -1,12 +1,10 @@
-// .devcontainer/devcontainer.json
 {
-  "name": "GeekMode Next.js Dev Environment",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "name": "My Codespace Template",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:0-bullseye",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
-      "version": "20"
-    },
-    "ghcr.io/devcontainers/features/git:1": {}
+      "version": "16"
+    }
   },
   "forwardPorts": [3000],
   "portsAttributes": {
@@ -19,10 +17,7 @@
     "1-enable-corepack": "sudo corepack enable",
     "2-setup-yarn": "corepack prepare yarn@stable --activate && yarn set version stable"
   },
-  "postCreateCommand": {
-    "1-install": "yarn install",
-    "2-ui-setup": "npx shadcn@latest init -y && npx shadcn@latest add button"
-  },
+  "postCreateCommand": "yarn install",
   "postStartCommand": {
     "1-server": "yarn dev",
     "2-preview": "sleep 10 && npx -y @vscode/launch-editor 'vscode://ms-vscode.live-server/command/live-preview.start?url=http://localhost:3000'"
@@ -30,10 +25,6 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss",
-        "formulahendry.auto-rename-tag",
         "csstools.postcss",
         "ms-vscode.vscode-typescript-next",
         "arcanis.vscode-zipfs",
