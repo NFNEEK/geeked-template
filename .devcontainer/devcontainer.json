@@ -1,0 +1,83 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "GeekMode Next.js Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Next.js App",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "onCreateCommand": {
+    "1-enable-corepack": "sudo corepack enable",
+    "2-setup-yarn": "corepack prepare yarn@stable --activate && yarn set version stable"
+  },
+  "postCreateCommand": {
+    "1-install": "yarn install",
+    "2-ui-setup": "npx shadcn@latest init -y && npx shadcn@latest add button"
+  },
+  "postStartCommand": {
+    "1-server": "yarn dev",
+    "2-preview": "sleep 10 && npx -y @vscode/launch-editor 'vscode://ms-vscode.live-server/command/live-preview.start?url=http://localhost:3000'"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "formulahendry.auto-rename-tag",
+        "csstools.postcss",
+        "ms-vscode.vscode-typescript-next",
+        "arcanis.vscode-zipfs",
+        "PKief.material-icon-theme",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "GitHub.vscode-pull-request-github",
+        "ms-vscode.live-server",
+        "ritwickdey.LiveServer"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        },
+        "typescript.tsdk": ".yarn/sdks/typescript/lib",
+        "typescript.enablePromptUseWorkspaceTsdk": true,
+        "github.copilot.enable": {
+          "*": true,
+          "plaintext": true,
+          "markdown": true,
+          "typescript": true,
+          "typescriptreact": true,
+          "javascript": true,
+          "javascriptreact": true
+        },
+        "github.copilot.editor.enableAutoCompletions": true,
+        "liveServer.settings.useLocalIp": true,
+        "liveServer.settings.port": 3000,
+        "liveServer.settings.root": "/",
+        "liveServer.settings.CustomBrowser": "chrome",
+        "livePreview.serverRoot": ".",
+        "livePreview.autoRefreshPreview": "On Changes to Saved Files",
+        "livePreview.defaultPreviewPath": "/",
+        "workbench.startupEditor": "none",
+        "workbench.welcomePage.walkthroughs.openOnInstall": false
+      }
+    },
+    "codespaces": {
+      "openFiles": [
+        "README.md",
+        "src/app/page.tsx"
+      ]
+    }
+  }
+}
